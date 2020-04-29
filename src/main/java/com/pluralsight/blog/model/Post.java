@@ -7,6 +7,9 @@ import java.util.Date;
 
 @Entity
 public class Post {
+    @ManyToOne
+    private Category category;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,6 +36,14 @@ public class Post {
         this.body = body;
         this.author = author;
         this.date = date;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public Long getId() {
